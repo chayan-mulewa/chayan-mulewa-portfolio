@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Button from "../components/Button/Button";
-import ChayanMulewaPortfolio from "../assets/projects/Chayan Mulewa Portfolio.png";
-import MomentumFX from "../assets/projects/MomentumFX.png";
+import WebProjects from "../components/Projects/WebProjects";
+import { handleIWantToStartProject, handleIWantToBookSession } from "../utils";
 
 export default function Projects() {
   const firstH1Ref = useRef(null);
@@ -11,6 +11,12 @@ export default function Projects() {
   const buttonRef = useRef(null);
 
   const [isAnimated, setisAnimated] = useState(false);
+
+  const [activeCategory, setActiveCategory] = useState("Web");
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+  };
 
   useEffect(() => {
     gsap.fromTo(
@@ -43,16 +49,6 @@ export default function Projects() {
     );
   }, []);
 
-  const handleIWantToStartProject = () => {
-    window.location.href =
-      "mailto:chayanmulewa@gmail.com?subject=I%20Want%20To%20Start%20Project%20with%20You";
-  };
-
-  const handleIWantToBookSession = () => {
-    window.location.href =
-      "mailto:chayanmulewa@gmail.com?subject=I%20Want%20to%20Book%2015%20Minute%20Free%20Session";
-  };
-
   return (
     <main className="flex flex-col overflow-hidden">
       <section className="min-h-dvh flex flex-col gap-[10dvh] px-4 py-[20dvh] justify-center items-center text-center bg-white text-textColor md:px-20 transition-all duration-400">
@@ -62,21 +58,23 @@ export default function Projects() {
             style={{ fontSize: "clamp(1.1rem, 2vw, 1.5vw)" }}
             className="text-balance"
           >
-            Recent Project Highlights and Achievements
+            Explore the Following Projects and Their Detailed Listings
           </h1>
           <h1
             ref={secondH1Ref}
             style={{ fontSize: "clamp(1.6rem, 20vw, 4vw)" }}
             className="leading-tight font-extrabold text-balance"
           >
-            Project
+            {/* Exceptional Projects Showcasing Innovative Achievements and Expertise */}
+            Innovative Solutions and Cutting-Edge Developments in My Latest
+            Projects
           </h1>
           <h1
             ref={thirdH1Ref}
             style={{ fontSize: "clamp(1.1rem, 2vw, 1.5vw)" }}
             className="text-balance"
           >
-            Find below my recent projects listed
+            Noteworthy Projects and Key Achievements in Recent Ventures
           </h1>
         </div>
         <div>
@@ -90,46 +88,22 @@ export default function Projects() {
           />
         </div>
       </section>
-
       <section className="min-h-dvh flex flex-col gap-[5dvh] px-4 py-[5dvh] justify-start items-center text-center bg-white text-textColor md:px-40 md:items-start">
         <div className="flex flex-row justify-center items-center gap-[5dvh]">
-          <h1
+          <button
+            onClick={() => handleCategoryClick("Web")}
             style={{ fontSize: "clamp(1rem, 10vw, 1vw)" }}
-            className="font-bold bg-bgColor text-white px-4 py-1 rounded-md"
+            className={`font-bold px-4 py-1 rounded-md transition-all duration-400 ${
+              activeCategory === "Web"
+                ? "bg-bgColor text-white"
+                : "border-2 border-bgColor bg-white text-textColor"
+            }`}
           >
             Web
-          </h1>
+          </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[5dvh] ">
-          <div className="flex flex-col gap-[2dvh]">
-            <a href="https://chayanmulewa.vercel.app/">
-              <img
-                style={{ height: "clamp(30rem, 50vw, 40vw)" }}
-                className="transition-all shadow-lg shadow-gray-400 duration-400 hover:scale-[102%]"
-                src={ChayanMulewaPortfolio}
-                alt=""
-              />
-            </a>
-            <div>
-              <h1 className="font-bold text-start">Chayan Mulewa Portfolio</h1>
-            </div>
-          </div>
-          <div className="flex flex-col gap-[2dvh]">
-            <a href="https://momentumfx.vercel.app/">
-              <img
-                style={{ height: "clamp(34rem, 50vw, 40vw)" }}
-                className="transition-all shadow-lg shadow-gray-400 duration-400 hover:scale-[102%]"
-                src={MomentumFX}
-                alt=""
-              />
-            </a>
-            <div>
-              <h1 className="text-start font-bold">MomentumFX</h1>
-            </div>
-          </div>
-        </div>
+        {activeCategory === "Web" && <WebProjects />}
       </section>
-
       <section className="min-h-dvh flex flex-col px-4 py-[0dvh] justify-center items-center text-center  bg-white text-textColor md:px-20">
         <div className="flex flex-col gap-[6dvh] justify-center items-center md:w-[55%] ">
           <h1

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Button from "../components/Button/Button";
+import { handleINeedFullStackDev, handleINeedWebDesigner } from "../utils";
 
 export default function Home() {
   const fullStackRef = useRef(null);
@@ -75,15 +76,6 @@ export default function Home() {
       textShadow:
         "1px 1px 0 #1b1b1b, -1px -1px 0 #1b1b1b, 1px -1px 0 #1b1b1b, -1px 1px 0 #1b1b1b",
     },
-  };
-
-  const handleINeedFullStackDev = () => {
-    window.location.href =
-      "mailto:chayanmulewa@gmail.com?subject=I%20Need%20an%20Full%20Stack%20Developer";
-  };
-  const handleINeedWebDesigner = () => {
-    window.location.href =
-      "mailto:chayanmulewa@gmail.com?subject=I%20Need%20an%20Web%20Designer";
   };
 
   return (

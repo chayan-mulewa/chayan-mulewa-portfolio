@@ -33,16 +33,13 @@ export default function About() {
           <span className="font-bold">ReactJS</span> +{" "}
           <span className="font-bold">GSAP</span> expert
         </h1>
-        <div ref={secondH1Ref} className="md:w-[70%] ">
-          <h1
-            style={{ fontSize: "clamp(1.8rem, 20vw, 2.8vw)" }}
-            className="font-bold"
-          >
-            Here you'll discover additional insights about me, my expertise,
-            technical skills and much more.
-          </h1>
-        </div>
-
+        <h1
+          ref={secondH1Ref}
+          style={{ fontSize: "clamp(1.6rem, 20vw, 4vw)" }}
+          className="leading-tight font-extrabold text-balance"
+        >
+          Unveil deeper insights about My expertise, skills, and many more.
+        </h1>
         <h1 ref={thirdH1Ref} style={{ fontSize: "clamp(1.1rem, 2vw, 1.5vw)" }}>
           Software Eng, Full Stack Dev and{" "}
           <span className="font-bold">MERN</span> +{" "}

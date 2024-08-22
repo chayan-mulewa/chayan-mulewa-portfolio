@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Button from "../components/Button/Button";
+import { handleIWantToStartProject, handleIWantToBookSession } from "../utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -218,16 +219,6 @@ export default function Design() {
       }
     );
   }, []);
-
-  const handleIWantToStartProject = () => {
-    window.location.href =
-      "mailto:chayanmulewa@gmail.com?subject=I%20Want%20To%20Start%20Project%20with%20You";
-  };
-
-  const handleIWantToBookSession = () => {
-    window.location.href =
-      "mailto:chayanmulewa@gmail.com?subject=I%20Want%20to%20Book%2015%20Minute%20Free%20Session";
-  };
 
   return (
     <main className="flex flex-col overflow-hidden">
